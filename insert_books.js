@@ -10,127 +10,107 @@ const uri = 'mongodb://localhost:27017';
 const dbName = 'plp_bookstore';
 const collectionName = 'books';
 
-// Sample book data
-const books = [
+// insert_books.js
+const books =[
   {
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
-    genre: 'Fiction',
-    published_year: 1960,
-    price: 12.99,
+    title: "Fathers of Nations",
+    author: "Paul B. Vitta",
+    genre: "Literature in English",
+    published_year: 2013,
+    price: 900,
     in_stock: true,
-    pages: 336,
-    publisher: 'J. B. Lippincott & Co.'
+    pages: 290,
+    publisher: "Oxford University Press"
   },
   {
-    title: '1984',
-    author: 'George Orwell',
-    genre: 'Dystopian',
-    published_year: 1949,
-    price: 10.99,
-    in_stock: true,
-    pages: 328,
-    publisher: 'Secker & Warburg'
-  },
-  {
-    title: 'The Great Gatsby',
-    author: 'F. Scott Fitzgerald',
-    genre: 'Fiction',
-    published_year: 1925,
-    price: 9.99,
+    title: "The Samaritan",
+    author: "John Lara",
+    genre: "Drama",
+    published_year: 2005,
+    price: 850,
     in_stock: true,
     pages: 180,
-    publisher: 'Charles Scribner\'s Sons'
+    publisher: "East African Publishers"
   },
   {
-    title: 'Brave New World',
-    author: 'Aldous Huxley',
-    genre: 'Dystopian',
-    published_year: 1932,
-    price: 11.50,
+    title: "A Silent Song and Other Stories",
+    author: "Edited by Godwin Siundu",
+    genre: "Anthology",
+    published_year: 2010,
+    price: 750,
+    in_stock: true,
+    pages: 220,
+    publisher: "Longhorn Publishers"
+  },
+  {
+    title: "Artist of the Floating World",
+    author: "Kazuo Ishiguro",
+    genre: "Novel",
+    published_year: 1986,
+    price: 1000,
     in_stock: false,
-    pages: 311,
-    publisher: 'Chatto & Windus'
+    pages: 206,
+    publisher: "Faber and Faber"
   },
   {
-    title: 'The Hobbit',
-    author: 'J.R.R. Tolkien',
-    genre: 'Fantasy',
-    published_year: 1937,
-    price: 14.99,
+    title: "Parliament of Owls",
+    author: "Adipo Sidang",
+    genre: "Drama",
+    published_year: 2016,
+    price: 700,
     in_stock: true,
-    pages: 310,
-    publisher: 'George Allen & Unwin'
+    pages: 150,
+    publisher: "East African Educational Publishers"
   },
   {
-    title: 'The Catcher in the Rye',
-    author: 'J.D. Salinger',
-    genre: 'Fiction',
-    published_year: 1951,
-    price: 8.99,
+    title: "Cheche za Moto",
+    author: "John Habwe",
+    genre: "Kiswahili Novel",
+    published_year: 2018,
+    price: 650,
     in_stock: true,
-    pages: 224,
-    publisher: 'Little, Brown and Company'
+    pages: 260,
+    publisher: "JKF"
   },
   {
-    title: 'Pride and Prejudice',
-    author: 'Jane Austen',
-    genre: 'Romance',
-    published_year: 1813,
-    price: 7.99,
+    title: "Bembea",
+    author: "Timothy Moriasi",
+    genre: "Kiswahili Play",
+    published_year: 2019,
+    price: 700,
     in_stock: true,
-    pages: 432,
-    publisher: 'T. Egerton, Whitehall'
+    pages: 170,
+    publisher: "East African Publishers"
   },
   {
-    title: 'The Lord of the Rings',
-    author: 'J.R.R. Tolkien',
-    genre: 'Fantasy',
-    published_year: 1954,
-    price: 19.99,
+    title: "Mapambazuko ya Machweo na Hadithi Nyingine",
+    author: "Anthology (KICD approved)",
+    genre: "Kiswahili Short Stories",
+    published_year: 2020,
+    price: 600,
     in_stock: true,
-    pages: 1178,
-    publisher: 'Allen & Unwin'
+    pages: 210,
+    publisher: "Longhorn Publishers"
   },
   {
-    title: 'Animal Farm',
-    author: 'George Orwell',
-    genre: 'Political Satire',
-    published_year: 1945,
-    price: 8.50,
+    title: "Strange Happenings",
+    author: "Jennie Marima",
+    genre: "Junior Secondary English",
+    published_year: 2021,
+    price: 500,
+    in_stock: true,
+    pages: 140,
+    publisher: "Storymoja"
+  },
+  {
+    title: "Mji wa Matarajio",
+    author: "Assumpta K. Matei",
+    genre: "Junior Secondary Kiswahili",
+    published_year: 2021,
+    price: 550,
     in_stock: false,
-    pages: 112,
-    publisher: 'Secker & Warburg'
-  },
-  {
-    title: 'The Alchemist',
-    author: 'Paulo Coelho',
-    genre: 'Fiction',
-    published_year: 1988,
-    price: 10.99,
-    in_stock: true,
-    pages: 197,
-    publisher: 'HarperOne'
-  },
-  {
-    title: 'Moby Dick',
-    author: 'Herman Melville',
-    genre: 'Adventure',
-    published_year: 1851,
-    price: 12.50,
-    in_stock: false,
-    pages: 635,
-    publisher: 'Harper & Brothers'
-  },
-  {
-    title: 'Wuthering Heights',
-    author: 'Emily Brontë',
-    genre: 'Gothic Fiction',
-    published_year: 1847,
-    price: 9.99,
-    in_stock: true,
-    pages: 342,
-    publisher: 'Thomas Cautley Newby'
+    pages: 160,
+    publisher: "JKF"
   }
 ];
 
