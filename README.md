@@ -1,59 +1,122 @@
-# MongoDB Fundamentals - Week 1
 
-## Setup Instructions
+# MongoDB Fundamentals - Week 1 
 
-Before you begin this assignment, please make sure you have the following installed:
+This assignment demonstrates how to work with MongoDB by inserting sample Kenyan secondary school books and running various queries, including CRUD operations, advanced queries, aggregation pipelines, and indexing.
 
-1. **MongoDB Community Edition** - [Installation Guide](https://www.mongodb.com/docs/manual/administration/install-community/)
-2. **MongoDB Shell (mongosh)** - This is included with MongoDB Community Edition
-3. **Node.js** - [Download here](https://nodejs.org/)
+---
 
-### Node.js Package Setup
+## 📦 Prerequisites
 
-Once you have Node.js installed, run the following commands in your assignment directory:
+- Install **MongoDB Community Server** and ensure it is running locally.
+- Install **MongoDB Compass** (optional, GUI for exploring data).
+- Install **Node.js** (for running the insert script).
+- Install **mongosh** (MongoDB shell) if you want to run queries in the terminal.
+
+---
+
+## 📂 Project Structure
+.
+├── insert_books.js # Script to insert sample books
+├── queries.js # MongoDB queries (CRUD, aggregation, indexing)
+├── README.md # Documentation
+
+---
+
+## 🚀 How to Run
+
+### 1. Insert Books into the Database
+This script uses Node.js to insert 10 sample Kenyan secondary school curriculum books.
 
 ```bash
-# Initialize a package.json file
-npm init -y
+node insert_books.js
 
-# Install the MongoDB Node.js driver
-npm install mongodb
-```
 
-## Assignment Overview
+The script connects to mongodb://127.0.0.1:27017.
 
-This week focuses on MongoDB fundamentals including:
-- Creating and connecting to MongoDB databases
-- CRUD operations (Create, Read, Update, Delete)
-- MongoDB queries and filters
-- Aggregation pipelines
-- Indexing for performance
+It inserts books into the library.books collection.
 
-## Submission
+Output will confirm that books were inserted.
 
-Complete all the exercises in this assignment and push your code to GitHub using the provided GitHub Classroom link.
+You can verify in MongoDB Compass:
 
-## Getting Started
+Connect to mongodb://127.0.0.1:27017.
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+Open the library database → books collection.
 
-## Files Included
+You should see the inserted documents.
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+2. Run Queries
 
-## Requirements
+There are two ways to run the queries in queries.js:
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
+a) Using MongoDB Compass
 
-## Resources
+Open Compass.
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+Connect to your local MongoDB instance.
+
+Go to library → books.
+
+Open Playground.
+
+Copy queries from queries.js and run them.
+
+b) Using mongosh
+
+Open terminal and start mongosh:
+
+mongosh
+
+
+Switch to the database:
+
+use library
+
+
+Then copy-paste queries from queries.js.
+
+🛠 Tasks Covered
+Task 2: Basic CRUD
+
+Find books by genre, author, year.
+
+Update book price.
+
+Delete book by title.
+
+Task 3: Advanced Queries
+
+Find in-stock books published after 2010.
+
+Projection (title, author, price only).
+
+Sorting (ascending, descending).
+
+Pagination (5 books per page).
+
+Task 4: Aggregation Pipelines
+
+Average price by genre.
+
+Author with the most books.
+
+Group by decade.
+
+Task 5: Indexing
+
+Index on title.
+
+Compound index on author and published_year.
+
+Use explain() to demonstrate performance.
+
+✅ Example Query
+
+Find all novels:
+
+db.books.find({ genre: "Novel" })
+
+
+Find books after 2010:
+
+db.books.find({ published_year: { $gt: 2010 } })
